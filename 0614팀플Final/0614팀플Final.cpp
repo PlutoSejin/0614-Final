@@ -86,8 +86,8 @@ void initMap(struct Node(*gameMap)[MAX_Y], int gameLevel)
 			printf("%d ", gameMap[i][j].mineCnt);
 		}
 		printf("\n");
-	}
-	printf("\n");
+	}*/
+	/*printf("\n");
 	for (i = 0; i < MAX_X - gameLevel; i++)
 	{
 		for (j = 0; j < MAX_Y - gameLevel; j++)
@@ -225,7 +225,7 @@ int resultFunc(struct Node(*gameMap)[MAX_Y], int gameLevel)
 int randx(int x, int y)
 {
 	int retVal;
-	retVal = rand() % (y - x + 1) + x;
+	retVal = rand() % (y - x + 1) ;
 	return retVal;
 }
 
@@ -319,9 +319,9 @@ void mouseCallback(ObjectID object, int x, int y, MouseAction action) {
 							}
 						}
 					}
+					timer3 = createTimer(1.0f);
 					startTimer(timer3);
-					enterScene(scene5);
-					ending();
+					
 
 				}
 				displayMap(gameMap, gameLevel);
@@ -393,9 +393,8 @@ void timerCallback(TimerID timer) {
 		ending();
 	}
 	if (timer == timer3) {
-		setTimer(timer3, 1.00f);
-		displayMap(gameMap, gameLevel);
-		stopTimer(timer3);
+		enterScene(scene5);
+		ending();
 	}
 }
 
